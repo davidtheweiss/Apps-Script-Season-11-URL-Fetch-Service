@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap" rel="stylesheet">
+    <?!= includeExternalFile('index_css'); ?>
+  </head>
+  
+  <body>
+    <div id='container'>
+      <h1>Get Early Access to my Website!</h1>
+      <form action="<?= ScriptApp.getService().getUrl() ?>" method="POST" autocomplete="off">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </body>
+  
+</html>
