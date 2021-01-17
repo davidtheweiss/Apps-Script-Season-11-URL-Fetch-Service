@@ -1,0 +1,9 @@
+$clientId = "your application ID goes here"
+ 
+Start-Process "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=$clientId&scope=files.read offline_access&response_type=code&redirect_uri=https://login.live.com/oauth20_desktop.srf"
+ 
+$code = Read-Host "Please enter the code"
+ 
+$response = Invoke-WebRequest https://login.microsoftonline.com/common/oauth2/v2.0/token -ContentType application/x-www-form-urlencoded -Method POST -Body "client_id=$clientid&redirect_uri=https://login.live.com/oauth20_desktop.srf&code=$code&grant_type=authorization_code"
+ 
+Write-Output "Refresh token: " ($response.Content | ConvertFrom-Json).refresh_token
